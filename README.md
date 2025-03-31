@@ -10,7 +10,7 @@ This script implements a minimal TR-069 remote management server to enable Web U
 4. Turn on the FreedomFi Indoor CBRS Radio, and plug it into your LAN.
 5. Once the radio starts connecting to remote management, you should see the script start printing some XML messages. These are the messages sent by the radio.
 
-```bash
+```xml
 <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cwmp="urn:dslforum-org:cwmp-1-0">
   <soap-env:Header>
     <cwmp:ID soap-env:mustUnderstand="1">null</cwmp:ID>
@@ -21,8 +21,6 @@ This script implements a minimal TR-069 remote management server to enable Web U
     </cwmp:SetParameterValuesResponse>
   </soap-env:Body>
 </soap-env:Envelope>
-
-192.168.0.209 - - [30/Mar/2025 17:15:50] "POST / HTTP/1.1" 200 -
 ```
 
 If you do not see any requests, make sure you set up the DNS hijacking correctly. Try visiting `http://acs.freedomfi.com:8443` with your browser, and it should show an XML response.
