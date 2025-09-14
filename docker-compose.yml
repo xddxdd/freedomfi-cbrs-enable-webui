@@ -1,0 +1,13 @@
+services:
+  tr069:
+    build: .
+    ports:
+      - "8443:8443"
+    networks:
+      - tr069-network
+    image: tr069-server
+    container_name: tr069
+
+networks:
+  tr069-network:
+    driver: bridge

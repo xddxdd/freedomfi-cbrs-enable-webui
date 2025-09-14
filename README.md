@@ -29,3 +29,30 @@ If you do not see any requests, make sure you set up the DNS hijacking correctly
 7. Log in to the Web UI at the radio's IP address. The web UI is on port 443 with HTTPS enabled. E.g. `https://192.168.1.123/`
 8. The default username and password are `sc_femto` and `tsFid2wz` ([source](https://discord.com/channels/404106811252408320/836735476659912754/1355330850232995861)).
 9. Stop the script and remove the DNS hijacking, so that the radio doesn't try to connect to remote management infinitely.
+
+## Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+
+### With Docker
+
+1. Build the Docker image:
+   ```bash
+   docker build -t tr069-server .
+   ```
+
+2. Run the container:
+   ```bash
+   docker run -p 8443:8443 tr069-server
+   ```
+
+### With Docker Compose
+
+1. Start the service using Docker Compose:
+   ```bash
+   docker-compose up -d
+   ```
+
+The service will start in detached mode on its own network, exposing port `8443` to the host.
